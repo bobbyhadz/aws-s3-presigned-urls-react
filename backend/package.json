@@ -1,0 +1,67 @@
+{
+  "scripts": {
+    "setup": "npm install && npm install --prefix src/ && npm install --prefix src/layers/yup-utils/nodejs",
+    "cdk-bootstrap": "npx cdk bootstrap",
+    "cdk-synth": "npx cdk synth typescript-lambda-dev",
+    "cdk-deploy": "npx cdk deploy typescript-lambda-dev --outputs-file ./cdk-exports-dev.json",
+    "cdk-create-stack": "npm run cdk-bootstrap && npm run cdk-deploy",
+    "cdk-destroy": "npx cdk destroy typescript-lambda-dev",
+    "test": "jest",
+    "watch": "tsc -w",
+    "build": "tsc",
+    "cdk": "cdk",
+    "type-check": "tsc --project tsconfig.json --pretty --noEmit",
+    "lint": "eslint . --ext js,jsx,ts,tsx --fix"
+  },
+  "dependencies": {
+    "@aws-cdk/assert": "1.92.0",
+    "@aws-cdk/aws-apigatewayv2": "1.92.0",
+    "@aws-cdk/aws-apigatewayv2-integrations": "1.92.0",
+    "@aws-cdk/aws-dynamodb": "1.92.0",
+    "@aws-cdk/aws-iam": "1.92.0",
+    "@aws-cdk/aws-lambda": "1.92.0",
+    "@aws-cdk/aws-lambda-nodejs": "1.92.0",
+    "@aws-cdk/aws-logs": "1.92.0",
+    "@aws-cdk/core": "1.92.0",
+    "aws-cdk": "1.92.0",
+    "source-map-support": "^0.5.19",
+    "yup": "^0.32.9"
+  },
+  "devDependencies": {
+    "@types/jest": "^26.0.20",
+    "@types/node": "^14.14.22",
+    "@typescript-eslint/eslint-plugin": "^4.14.0",
+    "@typescript-eslint/parser": "^4.14.0",
+    "esbuild": "^0.8.34",
+    "eslint": "^7.18.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-config-prettier": "^7.2.0",
+    "eslint-import-resolver-typescript": "^2.3.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jest": "^24.1.3",
+    "eslint-plugin-prettier": "^3.3.1",
+    "jest": "^26.4.2",
+    "prettier": "^2.2.1",
+    "ts-jest": "^26.4.4",
+    "ts-node": "^9.1.1",
+    "typescript": "^4.1.3"
+  },
+  "name": "aws-cdk-typescript-lambda",
+  "version": "1.0.0",
+  "description": "Boilerplate for using AWS CDK alongside typescript Lambdas",
+  "keywords": [
+    "aws",
+    "cdk",
+    "typescript",
+    "lambda"
+  ],
+  "tags": [
+    "aws",
+    "cdk",
+    "typescript",
+    "lambda"
+  ],
+  "author": "Borislav Hadzhiev",
+  "license": "MIT",
+  "private": true
+}
