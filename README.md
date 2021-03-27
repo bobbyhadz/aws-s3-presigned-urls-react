@@ -27,7 +27,13 @@ npm run cdk-create-stack
 
 4. Open the AWS Console and the stack should be created in your default region
 
-5. Cleanup
+5. Start the react application and open `http://localhost:3000`
+
+```bash
+npm run dev
+```
+
+6. Cleanup
 
 ```bash
 npm run cdk-destroy
