@@ -11,7 +11,7 @@ const App: React.FC<AppProps> = ({Component, pageProps}) => {
         <meta content="IE=edge" httpEquiv="X-UA-Compatible" />
         <meta content="width=device-width, initial-scale=1" name="viewport" />
       </Head>
-      <div className="bg-gray-50">
+      <div>
         <Component {...pageProps} />
       </div>
     </StrictMode>
