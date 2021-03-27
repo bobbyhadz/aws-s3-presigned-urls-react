@@ -1,7 +1,7 @@
 declare global {
   namespace NodeJS {
     interface ProcessEnv {
-      TABLE_NAME: string;
+      BUCKET_NAME: string;
     }
   }
 }

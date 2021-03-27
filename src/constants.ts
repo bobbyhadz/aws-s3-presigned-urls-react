@@ -8,14 +8,14 @@ let S3_BUCKET_NAME = '';
 if (process.env.NODE_ENV === 'production') {
   API_BASE_URL = 'https://backend-api.com';
 } else {
-  const DEV_API_URL = dev['next-cognito-dev'].apiUrl;
+  const DEV_API_URL = dev['presigned-url-dev'].apiUrl;
   const DEV_API_URL_WITHOUT_TRAILING_SLASH = DEV_API_URL.slice(
     0,
     DEV_API_URL.length - 1,
   );
   API_BASE_URL = DEV_API_URL_WITHOUT_TRAILING_SLASH;
-  REGION = dev['next-cognito-dev'].region;
-  S3_BUCKET_NAME = dev['next-cognito-dev'].bucketName;
+  REGION = dev['presigned-url-dev'].region;
+  S3_BUCKET_NAME = dev['presigned-url-dev'].bucketName;
 }
 export const S3_BUCKET_URL = `https://${S3_BUCKET_NAME}.s3.amazonaws.com`;
 export const MAX_FILE_SIZE_BYTES = 1000000;

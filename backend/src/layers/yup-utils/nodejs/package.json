@@ -1,8 +1,0 @@
-{
-  "name": "nodejs",
-  "private": true,
-  "version": "1.0.0",
-  "dependencies": {
-    "yup": "^0.32.9"
-  }
-}

@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {API_BASE_URL} from 'src/constants';
+import {API_BASE_URL, S3_BUCKET_URL} from 'src/constants';
 
 export async function uploadToS3({
   fileType,
@@ -8,7 +8,11 @@ export async function uploadToS3({
   fileType: string;
   fileContents: File;
 }) {
+  console.log('fileType is ', fileType);
+  console.log('fileContents is', fileContents);
   const presignedPostUrl = await getPresignedPostUrl(fileType);
+
+  console.log('presignedPostUrl is', presignedPostUrl);
 
   const formData = new FormData();
   formData.append('Content-Type', fileType);
@@ -17,11 +21,15 @@ export async function uploadToS3({
   });
   formData.append('file', fileContents); // The file has be the last element
 
+  console.log('formData is', formData);
+
   const response = await axios.post(presignedPostUrl.url, formData, {
     headers: {'Content-Type': 'multipart/form-data'},
   });
 
   console.log('response is', response);
+
+  console.log(`${S3_BUCKET_URL}/${presignedPostUrl.filePath}`);
 
   return presignedPostUrl.filePath;
 }
@@ -35,8 +43,6 @@ type PresignedPostUrlResponse = {
   };
   filePath: string;
 };
-
-// TODO: extract the
 
 const GET_PRESIGNED_URL_API_PATH = 'get-presigned-url-s3';
 

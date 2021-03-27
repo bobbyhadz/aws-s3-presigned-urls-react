@@ -55,6 +55,12 @@ const Home: React.FC = () => {
                   onChange={handleFileChange}
                 />
               </label>
+              <button
+                type="submit"
+                className="p-3 border-2 border-red-400 rounded-md"
+              >
+                Submit
+              </button>
             </div>
           </form>
         </div>
