@@ -27,7 +27,9 @@ npm run cdk-create-stack
 
 4. Open the AWS Console and the stack should be created in your default region
 
-5. Start the react application and open `http://localhost:3000`
+5. Start the react application and open `http://localhost:3000`. Note: it's
+   important that you run the react application on `http://localhost:3000`,
+   because that's the url we've set up CORS for.
 
 ```bash
 npm run dev
