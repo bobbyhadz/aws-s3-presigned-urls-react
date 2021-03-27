@@ -24,9 +24,8 @@ const Home: React.FC = () => {
         console.log('filePath is', filePath);
         fileDispatch({type: 'RESET_FILE_STATE'});
       }
-      console.log('there is no file selected.');
     } catch (err) {
-      console.log('Error is ', err);
+      console.log('error is', err);
     }
   };
   return (
@@ -61,7 +60,7 @@ const Home: React.FC = () => {
                 </label>
                 <button
                   type="submit"
-                  className="px-1 py-2 my-6 border-2 border-green-400 rounded-md hover:bg-green-50"
+                  className="px-1 py-2 my-6 border-2 border-green-400 rounded-md hover:bg-purple-200"
                 >
                   Upload to s3
                 </button>
