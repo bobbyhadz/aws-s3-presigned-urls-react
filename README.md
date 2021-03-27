@@ -1,0 +1,34 @@
+# Upload files to S3 via presigned URLs from a React.js appliaction
+
+A repository for an article on
+[bobbyhadz.com](https://bobbyhadz.com/blog/aws-cdk-typescript-lambda) that shows
+how to upload files from a react.js frontend to an s3 bucket using presigned
+post urls. The infrastructure is provisioned using CDK.
+
+## How to Use
+
+1. Clone the repository
+
+```bash
+git clone git@github.com:bobbyhadz/aws-s3-presigned-urls-react.git && cd aws-s3-presigned-urls-react
+```
+
+2. Install the dependencies
+
+```bash
+npm run setup
+```
+
+3. Create the CDK stack
+
+```bash
+npm run cdk-create-stack
+```
+
+4. Open the AWS Console and the stack should be created in your default region
+
+5. Cleanup
+
+```bash
+npm run cdk-destroy
+```

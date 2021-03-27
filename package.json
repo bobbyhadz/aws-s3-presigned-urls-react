@@ -1,5 +1,8 @@
 {
   "scripts": {
+    "setup": "npm install && npm run setup --prefix backend/",
+    "cdk-create-stack": "npm run cdk-create-stack --prefix backend/",
+    "cdk-destroy": "npm run cdk-destroy --prefix backend/",
     "dev": "next dev",
     "build": "next build && next export",
     "build:analyze": "ANALYZE=true next build",
@@ -8,12 +11,7 @@
     "test": "jest",
     "test:coverage": "jest --coverage --colors",
     "type-check": "tsc --project tsconfig.json --pretty --noEmit",
-    "lint": "eslint . --ext js,jsx,ts,tsx --fix --ignore-pattern backend",
-    "cdk-synth-dev": "make -C backend cdk-synth-dev",
-    "cdk-deploy-dev": "make -C backend cdk-deploy-dev",
-    "cdk-synth-prod": "make -C backend cdk-synth-prod",
-    "cdk-deploy-prod": "make -C backend cdk-deploy-prod",
-    "cdk-clean": "make -C backend cdk-clean"
+    "lint": "eslint . --ext js,jsx,ts,tsx --fix --ignore-pattern backend"
   },
   "dependencies": {
     "@tailwindcss/aspect-ratio": "^0.2.0",

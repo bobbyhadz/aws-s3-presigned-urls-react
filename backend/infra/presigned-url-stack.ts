@@ -5,18 +5,11 @@ import {NodejsFunction} from '@aws-cdk/aws-lambda-nodejs';
 import * as s3 from '@aws-cdk/aws-s3';
 import * as cdk from '@aws-cdk/core';
 import path from 'path';
-import {
-  DEPLOY_ENVIRONMENT,
-  DEPLOY_REGION,
-  FRONTEND_BASE_URL,
-  STACK_PREFIX,
-} from './constants';
+import {DEPLOY_ENVIRONMENT, FRONTEND_BASE_URL, STACK_PREFIX} from './constants';
 
 export class PresgiendUrlStack extends cdk.Stack {
   constructor(scope: cdk.Construct, id: string, props?: cdk.StackProps) {
     super(scope, id, props);
-
-    console.log('DEPLOY_REGION IS: v✅️✅️✅️', DEPLOY_REGION);
 
     const s3Bucket = new s3.Bucket(this, id, {
       cors: [
@@ -64,9 +57,7 @@ export class PresgiendUrlStack extends cdk.Stack {
         timeout: cdk.Duration.seconds(5),
         handler: 'main',
         entry: path.join(__dirname, '/../src/get-presigned-url-s3/index.ts'),
-        environment: {
-          BUCKET_NAME: s3Bucket.bucketName,
-        },
+        environment: {BUCKET_NAME: s3Bucket.bucketName},
       },
     );
 
@@ -86,8 +77,6 @@ export class PresgiendUrlStack extends cdk.Stack {
       // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
       value: httpApi.url!,
     });
-    new cdk.CfnOutput(this, 'bucketName', {
-      value: s3Bucket.bucketName,
-    });
+    new cdk.CfnOutput(this, 'bucketName', {value: s3Bucket.bucketName});
   }
 }
