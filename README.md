@@ -1,9 +1,9 @@
 # Upload files to S3 via presigned URLs from a React.js appliaction
 
 A repository for an article on
-[bobbyhadz.com](https://bobbyhadz.com/blog/aws-cdk-typescript-lambda) that shows
-how to upload files from a react.js frontend to an s3 bucket using presigned
-post urls. The infrastructure is provisioned using CDK.
+[bobbyhadz.com](https://bobbyhadz.com/blog/aws-s3-presigned-urls-react) that
+shows how to upload files from a react.js frontend to an s3 bucket using
+presigned post urls. The infrastructure is provisioned using CDK.
 
 ## How to Use
 
