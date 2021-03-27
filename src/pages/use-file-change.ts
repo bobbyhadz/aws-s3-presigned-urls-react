@@ -48,9 +48,6 @@ export function useFileChange() {
       return;
     }
 
-    console.log('dispatching file change success...');
-    console.log('filename', fileObj.name);
-
     // eslint-disable-next-line no-param-reassign
     event.target.value = '';
 
