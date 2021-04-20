@@ -9,10 +9,6 @@ presigned post urls. The infrastructure is provisioned using CDK.
 
 1. Clone the repository
 
-```bash
-git clone git@github.com:bobbyhadz/aws-s3-presigned-urls-react.git && cd aws-s3-presigned-urls-react
-```
-
 2. Install the dependencies
 
 ```bash
