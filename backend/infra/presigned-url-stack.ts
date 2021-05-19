@@ -7,7 +7,7 @@ import * as cdk from '@aws-cdk/core';
 import path from 'path';
 import {DEPLOY_ENVIRONMENT, FRONTEND_BASE_URL, STACK_PREFIX} from './constants';
 
-export class PresgiendUrlStack extends cdk.Stack {
+export class PresignedUrlStack extends cdk.Stack {
   constructor(scope: cdk.Construct, id: string, props?: cdk.StackProps) {
     super(scope, id, props);
 
