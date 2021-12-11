@@ -67,9 +67,10 @@ export class PresignedUrlStack extends cdk.Stack {
     httpApi.addRoutes({
       path: '/get-presigned-url-s3',
       methods: [apiGateway.HttpMethod.GET],
-      integration: new apiGatewayIntegrations.LambdaProxyIntegration({
-        handler: getPresignedUrlFunction,
-      }),
+      integration: new apiGatewayIntegrations.HttpLambdaIntegration(
+        'get-url-integration',
+        getPresignedUrlFunction,
+      ),
     });
 
     new cdk.CfnOutput(this, 'region', {value: cdk.Stack.of(this).region});
