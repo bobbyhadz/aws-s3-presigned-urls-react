@@ -64,9 +64,7 @@ export function createPresignedPost({
   };
 
   const s3 = new S3();
-  return (s3.createPresignedPost(
-    params,
-  ) as unknown) as Promise<S3.PresignedPost>;
+  return s3.createPresignedPost(params) as unknown as Promise<S3.PresignedPost>;
 }
 
 function generateId() {
