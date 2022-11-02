@@ -52,7 +52,7 @@ export class PresignedUrlStack extends cdk.Stack {
       this,
       'get-presigned-url',
       {
-        runtime: lambda.Runtime.NODEJS_14_X,
+        runtime: lambda.Runtime.NODEJS_16_X,
         memorySize: 1024,
         timeout: cdk.Duration.seconds(5),
         handler: 'main',
