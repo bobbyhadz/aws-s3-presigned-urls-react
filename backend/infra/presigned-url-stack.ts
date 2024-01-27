@@ -1,5 +1,5 @@
-import * as apiGateway from '@aws-cdk/aws-apigatewayv2-alpha';
-import * as apiGatewayIntegrations from '@aws-cdk/aws-apigatewayv2-integrations-alpha';
+import * as apiGateway from 'aws-cdk-lib/aws-apigatewayv2';
+import * as apiGatewayIntegrations from 'aws-cdk-lib/aws-apigatewayv2-integrations';
 import * as lambda from 'aws-cdk-lib/aws-lambda';
 import {NodejsFunction} from 'aws-cdk-lib/aws-lambda-nodejs';
 import * as s3 from 'aws-cdk-lib/aws-s3';
@@ -12,6 +12,14 @@ export class PresignedUrlStack extends cdk.Stack {
     super(scope, id, props);
 
     const s3Bucket = new s3.Bucket(this, id, {
+      accessControl: s3.BucketAccessControl.BUCKET_OWNER_FULL_CONTROL,
+      objectOwnership: s3.ObjectOwnership.OBJECT_WRITER,
+      blockPublicAccess: {
+        blockPublicAcls: false,
+        blockPublicPolicy: false,
+        ignorePublicAcls: false,
+        restrictPublicBuckets: false,
+      },
       cors: [
         {
           allowedMethods: [
@@ -52,7 +60,7 @@ export class PresignedUrlStack extends cdk.Stack {
       this,
       'get-presigned-url',
       {
-        runtime: lambda.Runtime.NODEJS_16_X,
+        runtime: lambda.Runtime.NODEJS_18_X,
         memorySize: 1024,
         timeout: cdk.Duration.seconds(5),
         handler: 'main',
